@@ -6,8 +6,7 @@ import AddNewCoupon from './automic/AddNewCoupon';
 export default () => {
   const {
     codes,
-    isLoading,
-    hasSubmitted
+    isLoading
   } = useCoupon();
 
   return (
@@ -22,7 +21,7 @@ export default () => {
         <div className="coupon-list">
           {codes.map((code, i) => (
             <React.Fragment key={code.id}>
-              <CouponItem coupon={code} index={i} fetched={hasSubmitted} />
+              <CouponItem coupon={code} index={i} fetched={!!(codes && codes.length)} />
             </React.Fragment>
           ))}
         </div>
