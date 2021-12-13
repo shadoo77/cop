@@ -1,0 +1,83 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "semi": ["error", "always"],
+    "@typescript-eslint/semi": ["error", "always"],
+    "no-underscore-dangle": "off",
+    "@typescript-eslint/no-unused-expressions": "off",
+    "class-methods-use-this": "off",
+    "max-len": [
+      "warn",
+      {
+        "code": 100,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true,
+        "ignoreComments": true
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      { "singleQuote": true, "parser": "flow" },
+      {
+        "usePrettierrc": false
+      }
+    ],
+    // "prettier/prettier": ["error", { "singleQuote": true, "parser": "flow" }],
+    "@typescript-eslint/no-explicit-any": ["off"],
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/indent": "off",
+    "@typescript-eslint/explicit-member-accessibility": [
+      "error",
+      {
+        "accessibility": "explicit",
+        "overrides": {
+          "accessors": "explicit",
+          "constructors": "no-public",
+          "methods": "off",
+          "properties": "off",
+          "parameterProperties": "explicit"
+        }
+      }
+    ],
+    "indent": [
+      2,
+      2,
+      {
+        "SwitchCase": 1,
+        "ignoredNodes": ["ConditionalExpression"]
+      }
+    ],
+    "quotes": [2, "single", { "avoidEscape": true }],
+    "@typescript-eslint/no-unused-vars": "error",
+    "no-console": ["warn", { "allow": ["warn", "error"] }]
+    // "import/no-extraneous-dependencies": [
+    //   "off",
+    //   { "devDependencies": false, "optionalDependencies": false, "peerDependencies": false }
+    // ]
+  },
+  "overrides": [
+    {
+      "files": ["*.test.js", "*.spec.js"],
+      "rules": {
+        "@typescript-eslint/no-unused-expressions": "off"
+      }
+    }
+  ]
+}

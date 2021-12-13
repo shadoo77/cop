@@ -1,0 +1,22 @@
+[
+  {
+    "id": "e17063dd-e5d2-4ba0-b7bf-f11eabee262f",
+    "code": "NDc0MzFlNzY4Y2YyZmFhNjk0NTE1OGEwMzE1ZDU1MzFiMDU5MDAzZDI2OTdmNGUwNTkxMWYzZmEwZDhmMzJiNw==",
+    "isPercent": true,
+    "isAmount": false,
+    "discountMount": 80,
+    "expireDate": "2023-03-16T23:00:00.000Z",
+    "isActive": true,
+    "createdAt": "2021-12-12T01:04:41.169Z"
+  },
+  {
+    "id": "3e73d1bb-1a61-4dd3-ae2d-cf4b2cd020f6",
+    "code": "Y2IyYzZhZWVkYWUxZGFhYzBmMDljMWFlNzk0ZjQ5ZTgwMTA2Nzc1YWFjMmEzYmRmN2YyOWY5ZTMxNGUwNDEzYw==",
+    "isPercent": false,
+    "isAmount": true,
+    "discountMount": "5",
+    "expireDate": "2021-12-13T11:04:34.974Z",
+    "isActive": true,
+    "createdAt": "2021-12-13T11:05:07.028Z"
+  }
+]

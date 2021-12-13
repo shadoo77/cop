@@ -1,0 +1,47 @@
+$progress-circle-width: 24px;
+$progress-circle-height: 24px;
+
+.main-app {
+  width: 100%;
+
+  header {
+    width: 100%;
+    height: $app-bar-height;
+    background-color: $kvk-font-color;
+  }
+
+  &-container {
+    background-color: #fff;
+    max-width: $app-width;
+    height: calc(100vh - #{$app-bar-height});
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .wrong-page {
+    h2 {
+      color: red;
+    }
+  }
+
+}
+
+.submit-button-wrapper {
+  margin-top: 20px;
+  position: relative;
+  width: 100%;
+
+  button {
+    height: calc(#{$progress-circle-height} * 2);
+  }
+
+  &-progress {
+    width: $progress-circle-width;
+    height: $progress-circle-height;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -12px;
+    margin-left: -12px;
+  }
+}

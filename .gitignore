@@ -1,0 +1,12 @@
+/node_modules
+
+frontend/.env
+frontend/.env*
+frontend/node_modules
+frontend/.gitignore
+
+api/.env
+api/node_modules
+api/build
+api/.env*
+

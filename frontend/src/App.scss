@@ -1,0 +1,11 @@
+@import './styles/application.scss';
+
+.App {
+  text-align: center;
+  background-color: $grey;
+  height: 100vh;
+}
+
+.wrong-page {
+  color: red;
+}
