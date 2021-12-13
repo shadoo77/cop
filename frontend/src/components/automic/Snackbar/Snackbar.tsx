@@ -7,7 +7,7 @@ function SnackBar() {
 
   return (
     <div className="snackbar">
-      <Snackbar open={successSnackbarOpen} autoHideDuration={1000} onClose={() => clearSnackbar()}>
+      <Snackbar open={successSnackbarOpen} autoHideDuration={2000} onClose={() => clearSnackbar()}>
         <Alert
           onClose={() => clearSnackbar()}
           severity={severity}

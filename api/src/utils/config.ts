@@ -3,7 +3,10 @@ import path from 'path';
 
 dotenv.config();
 const ENV_TYPE = process.env.NODE_ENV;
-const newPath = path.resolve(process.cwd(), ENV_TYPE ? `.env.${ENV_TYPE}` : '.env');
+const newPath = path.resolve(
+  process.cwd(),
+  ENV_TYPE ? `.env.${ENV_TYPE}` : '.env'
+);
 dotenv.config({ path: newPath });
 
 export default Object.freeze({

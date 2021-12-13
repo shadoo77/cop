@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { Grow } from '@mui/material';
 import Icon from './Icon';
 import CouponSticker from './CouponSticker';
-import { useSnackbar } from '../../../contexts/snackbarContext';
+import { useCoupon } from '../../../contexts/couponContext';
 import SendEmailForm from '../SendEmailForm';
 
 function CouponItem({ coupon, index, fetched }: any) {
-  const { showSnackbar } = useSnackbar();
+  const { deleteCouponById } = useCoupon();
   const [openDialog, setOpenDialog] = useState(false);
 
   const closeDialog = () => {
@@ -27,11 +27,6 @@ function CouponItem({ coupon, index, fetched }: any) {
           </div>
           <div>
             <Icon
-              label="copy"
-              type="copy"
-              onClickFunction={() => showSnackbar('Cppied to cliboard', 'info')}
-            />
-            <Icon
               label="mail"
               type="mail"
               onClickFunction={() => setOpenDialog(true)}
@@ -39,7 +34,7 @@ function CouponItem({ coupon, index, fetched }: any) {
             <Icon
               label="delete"
               type="delete"
-              onClickFunction={() => showSnackbar('Coupon has been deleted!', 'info')}
+              onClickFunction={() => deleteCouponById(coupon.id)}
             />
           </div>
         </div>

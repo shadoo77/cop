@@ -70,7 +70,7 @@ function remove(url: string, options: any = {}) {
     newOptions.headers['X-API-Key'] = options.xApiKey;
   }
 
-  return axios.get(url, newOptions)
+  return axios.delete(url, newOptions)
     .then(checkStatus)
     .then(parseJSON)
     .catch((err) => {

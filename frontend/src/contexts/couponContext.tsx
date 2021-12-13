@@ -1,5 +1,6 @@
 import React, { createContext, useState, useCallback, useEffect } from 'react';
 import couponService from '../services/couponService';
+import { useSnackbar } from './snackbarContext';
 
 export interface ICouponCode {
   id: string;
@@ -25,6 +26,7 @@ interface ICouponContext extends ICouponCodeState {
   resetState: React.DispatchWithoutAction;
   setState: (obj: any) => void;
   setCodePending: (codeId: string, val: boolean) => void;
+  deleteCouponById: (codeId: string) => void;
 }
 
 export const initialState = {
@@ -39,6 +41,7 @@ const CouponContext = createContext<ICouponContext | undefined>(undefined);
 
 export function CouponProvider(props: any) {
   const [state, setState] = useState<ICouponCodeState>(initialState);
+  const { showSnackbar } = useSnackbar();
 
   const setCodePending = (codeId: string, val: boolean) => {
     const foundCode = state.codes.find((code: ICouponCode) => code.id === codeId);
@@ -69,11 +72,14 @@ export function CouponProvider(props: any) {
           codes: data.map((el: any) => ({
             ...el, pending: false
           })),
-          isLoading: false,
           hasFailed: false,
           hasSubmitted: true
         }));
       }
+      setState((prevState) => ({
+        ...prevState,
+        isLoading: false
+      }));
     } catch (error) {
       console.error(error);
       setState((prevState) => ({
@@ -95,13 +101,34 @@ export function CouponProvider(props: any) {
     }, []
   );
 
+  const deleteCouponById = async (couponId: string) => {
+    try {
+      const isDeleted = await couponService.deleteCoupon(couponId);
+      if (isDeleted) {
+        const targetCodeIndex = state.codes
+          .map((code: ICouponCode) => code.id)
+          .indexOf(couponId);
+        const newCodes = state.codes;
+        newCodes.splice(targetCodeIndex, 1);
+        setState((prevState) => ({
+          ...prevState,
+          codes: newCodes
+        }));
+        showSnackbar('Coupon is deleted!', 'success');
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <CouponContext.Provider
       value={{
         ...state,
         resetState,
         setState,
-        setCodePending
+        setCodePending,
+        deleteCouponById
       }}
     >
       {props.children}

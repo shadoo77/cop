@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { AppBar, Box, Button, Toolbar, Typography } from '@mui/material';
 import { useHistory } from 'react-router-dom';
-// import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 export default function ButtonAppBar() {
   const history = useHistory();
@@ -13,7 +12,6 @@ export default function ButtonAppBar() {
           <Toolbar>
             <Button
               color="inherit"
-              // startIcon={<ArrowBackIosIcon />}
               onClick={() => history.push('/')}
             >
               Home
